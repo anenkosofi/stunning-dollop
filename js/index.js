@@ -265,6 +265,17 @@ if (isBalanced) {
   rootElement.innerHTML = text;
 }
 
+// Disable text selection
+document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('selectstart', function (e) {
+    e.preventDefault();
+  });
+});
+
+document.oncontextmenu = function () {
+  return false;
+};
+
 function checkParenthesesBalance(text) {
   const stack = [];
   const openBraces = ['(', '{', '['];
